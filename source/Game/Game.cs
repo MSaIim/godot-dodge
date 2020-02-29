@@ -13,7 +13,28 @@ public class Game : Node2D
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
+        // Play background music
+        GetNode<AudioStreamPlayer>("Music").Play();
+
+        // Start game
         this.NewGame();
+    }
+
+    public override void _Process(float delta)
+    {
+        // Restart game
+        if (Input.IsActionPressed("ui_f1"))
+        {
+            GetNode<Timer>("MobTimer").Stop();
+            GetNode<Timer>("ScoreTimer").Stop();
+            this.NewGame();
+        }
+
+        // Quit game
+        if (Input.IsActionPressed("ui_esc"))
+        {
+            GetTree().Quit();
+        }
     }
 
     public void NewGame()
@@ -23,9 +44,6 @@ public class Game : Node2D
         var player = GetNode<Player>("Player");
         var startPosition = GetNode<Position2D>("StartPosition");
         player.Start(startPosition.Position);
-
-        // Play background music
-        GetNode<AudioStreamPlayer>("Music").Play();
 
         // Start the game
         GetNode<Timer>("StartTimer").Start();
@@ -59,7 +77,7 @@ public class Game : Node2D
         mobSpawnLocation.Offset = this.random.Next();
 
         // Create Mob instance and add it to the scene
-        var mobInstance = (RigidBody2D) mob.Instance();
+        var mobInstance = (RigidBody2D)mob.Instance();
         this.AddChild(mobInstance);
 
         // Set the mob's direction perpendicular to the path direction

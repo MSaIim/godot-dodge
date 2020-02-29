@@ -8,10 +8,6 @@
 [ext_resource path="res://assets/art/enemyFlyingAlt_1.png" type="Texture" id=6]
 [ext_resource path="res://source/Mob/Mob.cs" type="Script" id=7]
 
-
-
-
-
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
