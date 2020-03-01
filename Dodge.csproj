@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="source\Game\Game.cs" />
+    <Compile Include="source\HUD\HUD.cs" />
     <Compile Include="source\Mob\Mob.cs" />
     <Compile Include="source\Player\Player.cs" />
   </ItemGroup>

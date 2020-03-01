@@ -15,22 +15,10 @@ public class Game : Node2D
     {
         // Play background music
         GetNode<AudioStreamPlayer>("Music").Play();
-
-        // Start game
-        this.NewGame();
     }
 
     public override void _Process(float delta)
     {
-        // Restart game
-        if (Input.IsActionPressed("ui_f1"))
-        {
-            GetNode<Timer>("MobTimer").Stop();
-            GetNode<Timer>("ScoreTimer").Stop();
-            this.NewGame();
-        }
-
-        // Quit game
         if (Input.IsActionPressed("ui_esc"))
         {
             GetTree().Quit();
@@ -41,6 +29,12 @@ public class Game : Node2D
     {
         this.score = 0;
 
+        // Update the HUD with messages
+        var hud = GetNode<HUD>("HUD");
+        hud.UpdateScore(this.score);
+        hud.ShowMessage("Get Ready!");
+
+        // Set player position and start player logic
         var player = GetNode<Player>("Player");
         var startPosition = GetNode<Position2D>("StartPosition");
         player.Start(startPosition.Position);
@@ -57,6 +51,9 @@ public class Game : Node2D
         // Stop the timers
         GetNode<Timer>("MobTimer").Stop();
         GetNode<Timer>("ScoreTimer").Stop();
+
+         // Show gameover screen
+        GetNode<HUD>("HUD").ShowGameOver();
     }
 
     public void OnStartTimerTimeout()
@@ -68,6 +65,7 @@ public class Game : Node2D
     public void OnScoreTimerTimeout()
     {
         this.score++;
+        GetNode<HUD>("HUD").UpdateScore(this.score);
     }
 
     public void OnMobTimerTimeout()

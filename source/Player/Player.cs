@@ -16,7 +16,7 @@ public class Player : Area2D
     public override void _Ready()
     {
         this.screenSize = this.GetViewport().Size;
-        // this.Hide();
+        this.Hide();
     }
 
     public void Start(Vector2 pos)
