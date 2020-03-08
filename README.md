@@ -7,5 +7,5 @@ Simple dodge game made in the Godot engine. You will most likely need the follow
 + .NET Framework 4.7 (Needs to be exact): https://www.microsoft.com/en-us/download/details.aspx?id=55170
 
 <p align="center">
-  ![](https://i.imgur.com/Hwx2udm.gif)
+<img src="https://i.imgur.com/Hwx2udm.gif" />
 </p>
