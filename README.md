@@ -6,6 +6,7 @@ Simple dodge game made in the Godot engine. You will most likely need the follow
 + Mono SDK: https://www.mono-project.com/download/stable/
 + .NET Framework 4.7 (Needs to be exact): https://www.microsoft.com/en-us/download/details.aspx?id=55170
 
+## Preview
 <p align="center">
-<img src="https://i.imgur.com/Hwx2udm.gif" />
+<img src="assets/art/dodge.gif">
 </p>
